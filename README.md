@@ -105,7 +105,7 @@ To clone a repository from a public GitLab repository and push it to a private G
 
 ## bpg-proxmox-module-cicd
 
-To use this Terraform module in GitLab CI/CD, please use the bpg-proxmox-module-cicd available at the following [link](https://github.com/jodykpw/bpg-proxmox-module-cicd).
+To use this Terraform module in GitLab CI/CD, please use the bpg-proxmox-module-cicd template.
 
 ## License
 
