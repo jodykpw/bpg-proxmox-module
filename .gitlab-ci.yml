@@ -1,0 +1,16 @@
+include:
+  local: .gitlab/Terraform-Module-Upload.gitlab-ci.yml
+
+stages:
+  - upload
+
+upload:
+  extends: .terraform_module_upload
+  variables:
+    TERRAFORM_MODULE_DIR: ${CI_PROJECT_DIR}/modules/bpg-proxmox-module # The path to your Terraform module
+    TERRAFORM_MODULE_NAME: bpg-proxmox-module # The name of your Terraform module
+    TERRAFORM_MODULE_SYSTEM: proxmox # The system or provider your Terraform module targets (ex. local, aws, google)
+    TERRAFORM_MODULE_VERSION: ${CI_COMMIT_TAG} # The version of your Terraform module to be published to your project's registry
+  stage: upload
+  rules:
+    - if: $CI_COMMIT_TAG

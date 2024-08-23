@@ -1,0 +1,5 @@
+#!/bin/bash
+
+unset TF_VAR_virtual_environment_username
+unset TF_VAR_virtual_environment_password
+unset TF_VAR_ssh_authorized_keys

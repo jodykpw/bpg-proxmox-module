@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# This script is designed exclusively for local development, and it should not be saved along with any sensitive credentials in the Git repository
+
+# Proxmox Provider
+export TF_VAR_virtual_environment_username=""
+export TF_VAR_virtual_environment_password=""
+export TF_VAR_virtual_environment_endpoint=""
+
+# Cloud-Init
+export TF_VAR_ssh_authorized_keys='[
+  "ssh-rsa",
+  "ssh-ed25519"
+]'
