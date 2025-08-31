@@ -61,10 +61,17 @@ variable "vms" {
     manage_etc_hosts        = bool
     fqdn                    = string
     timezone                = string
-    username                = string
-    ssh_authorized_keys     = list(string)
-    groups                  = list(string)
-    sudo_config             = list(string)
+    admin_username          = string
+    admin_password          = optional(string)
+    users = list(object({
+      username            = string
+      uid                 = optional(number)
+      gid                 = optional(number)
+      groups              = list(string)
+      sudo                = string
+      shell               = string
+      ssh_authorized_keys = list(string)
+    }))
     package_upgrade         = bool
     packages                = list(string)
     runcmd                  = list(string)
@@ -129,10 +136,28 @@ variable "vms" {
       manage_etc_hosts                = true
       fqdn                            = "default_fqdn"
       timezone                        = "default_timezone"
-      username                        = "ubuntu"
-      ssh_authorized_keys             = []
-      groups                          = ["adm, cdrom, dip, plugdev, lxd, sudo"]
-      sudo_config                     = ["ALL=(ALL) NOPASSWD:ALL"]
+      admin_username                  = "ubuntu"
+      # admin_password can be provided optionally per VM
+      users = [
+        {
+          username            = "ubuntu"
+          uid                 = null
+          gid                 = null
+          groups              = ["adm", "cdrom", "dip", "plugdev", "lxd", "sudo"]
+          sudo                = "ALL=(ALL) NOPASSWD:ALL"
+          shell               = "/bin/bash"
+          ssh_authorized_keys = []
+        },
+        {
+          username            = "ansible"
+          uid                 = 10001
+          gid                 = 10001
+          groups              = ["wheel"]
+          sudo                = "ALL=(ALL) NOPASSWD:ALL"
+          shell               = "/bin/bash"
+          ssh_authorized_keys = []
+        }
+      ]
       package_upgrade                 = true
       packages                        = ["qemu-guest-agent"]
       runcmd = [

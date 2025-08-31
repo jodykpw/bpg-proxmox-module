@@ -21,3 +21,9 @@ variable "ssh_authorized_keys" {
   type        = list(string)
   description = "The ssh_authorized_keys is a configuration option in cloud-init that allows you to specify a list of SSH public keys. When cloud-init runs during the instance initialization process, it adds these public keys to the ~/.ssh/authorized_keys file of the specified user, granting them SSH access to the instance."
 }
+
+variable "admin_password" {
+  description = "The password for each vm."
+  type        = string
+}
+

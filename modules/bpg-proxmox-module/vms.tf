@@ -41,8 +41,8 @@ resource "proxmox_virtual_environment_vm" "vms" {
   scsi_hardware = each.value.scsi_hardware
 
   vga {
-    memory  = each.value.vga_memory
-    type    = each.value.vga_type
+    memory = each.value.vga_memory
+    type   = each.value.vga_type
   }
 
   dynamic "tpm_state" {

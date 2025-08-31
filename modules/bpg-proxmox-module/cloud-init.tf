@@ -13,11 +13,11 @@ manage_etc_hosts: ${each.value.manage_etc_hosts}
 fqdn: ${each.value.fqdn}
 timezone: ${each.value.timezone}
 chpasswd:
-  ## Forcing user to change the default password at first login
-  expire: true
+  ## Force password change if admin_password not provided
+  expire: ${each.value.admin_password == null ? true : false}
   users:
-    - name: ${each.value.username}
-      password: password
+    - name: ${each.value.admin_username}
+      password: ${each.value.admin_password != null ? each.value.admin_password : "password"}
       type: text
 write_files:
   - path: /tmp/home_disk_setup.sh
@@ -32,12 +32,18 @@ write_files:
       UUID=$(blkid $(echo $BLOCK_DEVICE)1 | awk '{print $2}' | sed 's/"//g')
       echo "$UUID /mnt/new_home xfs defaults 0 0" | sudo tee -a /etc/fstab
 users:
-  - name: ${each.value.username}
-    groups: "${join(", ", each.value.groups)}"
-    sudo: "${join(", ", each.value.sudo_config)}"
-    shell: /bin/bash
+${join("\n", [
+  for u in each.value.users : <<EOT
+  - name: ${u.username}
+${u.uid != null ? "    uid: ${u.uid}" : ""}
+${u.gid != null ? "    gid: ${u.gid}" : ""}
+    groups: "${join(", ", u.groups)}"
+    sudo: "${u.sudo}"
+    shell: ${u.shell}
     ssh_authorized_keys:
-    ${join("\n", ["  - ${join("\n      - ", each.value.ssh_authorized_keys)}"])}
+${join("\n", [for key in u.ssh_authorized_keys : "      - ${key}"])}
+EOT
+])}
 package_upgrade: ${each.value.package_upgrade}
 ${length(each.value.packages) > 0 ? "packages:\n${join("\n", [for pkg in each.value.packages : "  - ${pkg}"])}" : ""}
 ${length(each.value.runcmd) > 0 ? "runcmd:\n${join("\n", [for cmd in each.value.runcmd : "  - ${cmd}"])}" : ""}

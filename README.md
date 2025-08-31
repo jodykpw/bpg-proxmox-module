@@ -51,8 +51,10 @@ This repository contains Terraform modules, based on [bpg/proxmox](https://regis
       1. Update the localdev-export.sh file.
 
       1. Load localdev-export.sh run:
-
-               source ./localdev-export.sh
+        
+          ```bash
+            source ./localdev-export.sh
+          ```
 
    1. Update provider.tf
    When updating provider.tf, ensure that its version matches the one specified in modules/bpg-proxmox-module/provider.tf.
@@ -121,3 +123,4 @@ If this project has helped save you time during development, I'd greatly appreci
 * Author: Jody WAN
 * Linkedin: https://www.linkedin.com/in/jodywan/
 * Website: https://www.jodywan.com
+

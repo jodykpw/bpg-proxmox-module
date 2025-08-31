@@ -8,13 +8,13 @@ This repository contains Terraform modules, based on [bpg/proxmox](https://regis
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14 |
-| <a name="requirement_proxmox"></a> [proxmox](#requirement\_proxmox) | 0.63.0 |
+| <a name="requirement_proxmox"></a> [proxmox](#requirement\_proxmox) | 0.82.0 |
 
 #### Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_proxmox"></a> [proxmox](#provider\_proxmox) | 0.63.0 |
+| <a name="provider_proxmox"></a> [proxmox](#provider\_proxmox) | 0.82.0 |
 
 #### Modules
 
@@ -24,15 +24,15 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [proxmox_virtual_environment_download_file.cloud_image](https://registry.terraform.io/providers/bpg/proxmox/0.63.0/docs/resources/virtual_environment_download_file) | resource |
-| [proxmox_virtual_environment_file.cloud_init](https://registry.terraform.io/providers/bpg/proxmox/0.63.0/docs/resources/virtual_environment_file) | resource |
-| [proxmox_virtual_environment_vm.vms](https://registry.terraform.io/providers/bpg/proxmox/0.63.0/docs/resources/virtual_environment_vm) | resource |
+| [proxmox_virtual_environment_download_file.cloud_image](https://registry.terraform.io/providers/bpg/proxmox/0.82.0/docs/resources/virtual_environment_download_file) | resource |
+| [proxmox_virtual_environment_file.cloud_init](https://registry.terraform.io/providers/bpg/proxmox/0.82.0/docs/resources/virtual_environment_file) | resource |
+| [proxmox_virtual_environment_vm.vms](https://registry.terraform.io/providers/bpg/proxmox/0.82.0/docs/resources/virtual_environment_vm) | resource |
 
 #### Inputs
 
 | Name | Description | Type |
 |------|-------------|------|
-| <a name="input_vms"></a> [vms](#input\_vms) | Map of VM configurations | <pre>map(object({<br>    name             = string<br>    description      = string<br>    node_name        = string<br>    vm_id            = number<br>    cpu_cores        = number<br>    dedicated_memory = number<br>    cpu_sockets      = number<br>    cpu_numa         = bool<br>    cpu_limit        = number<br>    cpu_type         = string<br>    bios             = string<br>    machine          = string<br>    agent_enabled    = bool<br>    agent_timeout    = string<br>    startup = optional(object({<br>      order      = number<br>      up_delay   = number<br>      down_delay = number<br>    }))<br>    operating_system_type  = string<br>    scsi_hardware          = string<br>    vga_memory             = number<br>    vga_type               = string<br>    tpm_enable             = bool<br>    tpm_datastore_id       = string<br>    tpm_version            = string<br>    network_device_bridge  = string<br>    ipv4_address           = string<br>    ipv4_gateway           = string<br>    dns_servers            = list(string)<br>    boot_disk_datastore_id = string<br>    boot_disk_interface    = string<br>    boot_disk_size         = number<br>    home_disk_block_device = string<br>    disks = list(object({<br>      disk_datastore_id = string<br>      disk_file_format  = string<br>      disk_size         = number<br>      # assign from scsi1 and up<br>      disk_interface = string<br>    }))<br>    tags = list(string)<br>    # Cloud Image<br>    cloud_image_node_name           = string<br>    cloud_image_content_type        = string<br>    cloud_image_datastore_id        = string<br>    cloud_image_url                 = string<br>    cloud_image_file_name           = string<br>    cloud_image_overwrite           = bool<br>    cloud_image_overwrite_unmanaged = bool<br>    # Cloud Init<br>    cloud_init_content_type = string<br>    cloud_init_datastore_id = string<br>    cloud_init_node_name    = string<br>    hostname                = string<br>    manage_etc_hosts        = bool<br>    fqdn                    = string<br>    timezone                = string<br>    username                = string<br>    ssh_authorized_keys     = list(string)<br>    groups                  = list(string)<br>    sudo_config             = list(string)<br>    package_upgrade         = bool<br>    packages                = list(string)<br>    runcmd                  = list(string)<br>  }))</pre> |
+| <a name="input_vms"></a> [vms](#input\_vms) | Map of VM configurations | <pre>map(object({<br>    name             = string<br>    description      = string<br>    node_name        = string<br>    vm_id            = number<br>    cpu_cores        = number<br>    dedicated_memory = number<br>    cpu_sockets      = number<br>    cpu_numa         = bool<br>    cpu_limit        = number<br>    cpu_type         = string<br>    bios             = string<br>    machine          = string<br>    agent_enabled    = bool<br>    agent_timeout    = string<br>    startup = optional(object({<br>      order      = number<br>      up_delay   = number<br>      down_delay = number<br>    }))<br>    operating_system_type  = string<br>    scsi_hardware          = string<br>    vga_memory             = number<br>    vga_type               = string<br>    tpm_enable             = bool<br>    tpm_datastore_id       = string<br>    tpm_version            = string<br>    network_device_bridge  = string<br>    ipv4_address           = string<br>    ipv4_gateway           = string<br>    dns_servers            = list(string)<br>    boot_disk_datastore_id = string<br>    boot_disk_interface    = string<br>    boot_disk_size         = number<br>    home_disk_block_device = string<br>    disks = list(object({<br>      disk_datastore_id = string<br>      disk_file_format  = string<br>      disk_size         = number<br>      # assign from scsi1 and up<br>      disk_interface = string<br>    }))<br>    tags = list(string)<br>    # Cloud Image<br>    cloud_image_node_name           = string<br>    cloud_image_content_type        = string<br>    cloud_image_datastore_id        = string<br>    cloud_image_url                 = string<br>    cloud_image_file_name           = string<br>    cloud_image_overwrite           = bool<br>    cloud_image_overwrite_unmanaged = bool<br>    # Cloud Init<br>    cloud_init_content_type = string<br>    cloud_init_datastore_id = string<br>    cloud_init_node_name    = string<br>    hostname                = string<br>    manage_etc_hosts        = bool<br>    fqdn                    = string<br>    timezone                = string<br>    admin_username          = string<br>    admin_password          = optional(string)<br>    users = list(object({<br>      username            = string<br>      uid                 = optional(number)<br>      gid                 = optional(number)<br>      groups              = list(string)<br>      sudo                = string<br>      shell               = string<br>      ssh_authorized_keys = list(string)<br>    }))<br>    package_upgrade         = bool<br>    packages                = list(string)<br>    runcmd                  = list(string)<br>  }))</pre> |
 For a complete list of inputs and their descriptions for the Proxmox provider, refer to the [Proxmox Provider Documentation](https://registry.terraform.io/providers/bpg/proxmox/latest/docs).
 
 #### Outputs
@@ -80,14 +80,14 @@ module "proxmox_vms" {
 ```hcl
 locals {
   vm_configurations = {
-    "vm-1" = {
+    "control-plane-1" = {
       # VM
-      name             = "vm-1"
-      description      = "A Docker containers on a single machine."
-      node_name        = "pve"
-      vm_id            = null
-      cpu_cores        = 4
-      dedicated_memory = 24576
+      name             = "control-plane-1"
+      description      = "The control plane manages the worker nodes and the Pods in the cluster."
+      node_name        = "pve1"
+      vm_id            = 151
+      cpu_cores        = 2
+      dedicated_memory = 8192
       cpu_sockets      = 1
       cpu_numa         = false
       cpu_limit        = 0
@@ -109,13 +109,13 @@ locals {
       tpm_datastore_id      = "local-lvm"
       tpm_version           = "v2.0"
       network_device_bridge = "vmbr0"
-      ipv4_address          = "10.1.5.101/24"
-      ipv4_gateway          = "10.1.5.1"
+      ipv4_address          = "10.1.10.151/24"
+      ipv4_gateway          = "10.1.10.1"
       dns_servers           = ["1.1.1.1", "8.8.8.8"]
       # VM: Boot Disk
       boot_disk_datastore_id = "local-lvm"
       boot_disk_interface    = "scsi0"
-      boot_disk_size         = 300
+      boot_disk_size         = 60
 
       # Note: If a new block device is needed for the home directory, ensure to create and
       # configure an additional disk accordingly, and update this variable with the appropriate
@@ -127,41 +127,65 @@ locals {
       # "/tmp/home_disk_setup.sh",
       # # - Cleans up the temporary folder after disk setup.
       # "rm -r /tmp/*"
-      home_disk_block_device = "/dev/sdb"
+      home_disk_block_device = "/dev/sdc"
       # VM: Attach disks, assign from scsi1 and up
       disks = [
         {
           disk_datastore_id = "local-lvm"
           disk_file_format  = "raw"
-          disk_size         = 60
+          disk_size         = 20
           disk_interface    = "scsi1"
+        },
+        {
+          disk_datastore_id = "local-lvm"
+          disk_file_format  = "raw"
+          disk_size         = 100
+          disk_interface    = "scsi2"
         }
       ]
       tags = ["terraform", "ubuntu-22.04"]
 
       # Cloud Image
       cloud_image_content_type        = "iso"
-      cloud_image_datastore_id        = "pve-cluster-fs"
-      cloud_image_node_name           = "pve"
+      cloud_image_datastore_id        = "local"
+      cloud_image_node_name           = "pve1"
       cloud_image_url                 = "https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img"
       cloud_image_file_name           = "jammy-server-cloudimg-amd64.img"
-      cloud_image_overwrite           = true
-      cloud_image_overwrite_unmanaged = true
+      cloud_image_overwrite           = false
+      cloud_image_overwrite_unmanaged = false
 
       # Cloud Init
       cloud_init_content_type = "snippets"
-      cloud_init_datastore_id = "pve-cluster-fs"
-      cloud_init_node_name    = "pve"
-      hostname                = "vm-1"
+      cloud_init_datastore_id = "pve-fs"
+      cloud_init_node_name    = "pve1"
+      hostname                = "control-plane-1"
       manage_etc_hosts        = true
-      fqdn                    = "vm-1.doman.com"
+      fqdn                    = "control-plane-1.domain.com"
       timezone                = "Europe/London"
-      username                = "adminjody"
-      groups                  = ["adm", "cdrom", "dip", "plugdev", "lxd", "sudo"]
-      sudo_config             = ["ALL=(ALL) NOPASSWD:ALL"]
-      ssh_authorized_keys     = var.ssh_authorized_keys
-      package_upgrade         = true
-      packages                = ["qemu-guest-agent", "nfs-common"]
+      admin_username          = "admin"
+      admin_password          = var.admin_password
+      users = [
+        {
+          username            = "admin"
+          uid                 = null
+          gid                 = null
+          groups              = ["adm", "cdrom", "dip", "plugdev", "lxd", "sudo"]
+          sudo                = "ALL=(ALL) NOPASSWD:ALL"
+          shell               = "/bin/bash"
+          ssh_authorized_keys = var.ssh_authorized_keys
+        },
+        {
+          username            = "ansible"
+          uid                 = 10001
+          gid                 = 10001
+          groups              = ["wheel"]
+          sudo                = "ALL=(ALL) NOPASSWD:ALL"
+          shell               = "/bin/bash"
+          ssh_authorized_keys = var.ssh_authorized_keys
+        }
+      ]
+      package_upgrade = true
+      packages        = ["qemu-guest-agent", "nfs-common"]
       runcmd = [
         # Enable and Start Qemu Agent
         "systemctl enable qemu-guest-agent",
@@ -173,34 +197,783 @@ locals {
         # Clean up temp folder.
         "rm -r /tmp/*"
       ]
-    }, # end of vm-1
+    }, # end of control-plane-1
+
+    "control-plane-2" = {
+      # VM
+      name             = "control-plane-2"
+      description      = "The control plane manages the worker nodes and the Pods in the cluster."
+      node_name        = "pve2"
+      vm_id            = 152
+      cpu_cores        = 2
+      dedicated_memory = 8192
+      cpu_sockets      = 1
+      cpu_numa         = false
+      cpu_limit        = 0
+      cpu_type         = "x86-64-v2-AES"
+      bios             = "seabios"
+      machine          = "q35"
+      agent_enabled    = true
+      agent_timeout    = "15m"
+      startup = {
+        order      = 1
+        up_delay   = 10
+        down_delay = 5
+      }
+      operating_system_type = "l26"
+      scsi_hardware         = "virtio-scsi-pci"
+      vga_memory            = 128
+      vga_type              = "std"
+      tpm_enable            = false
+      tpm_datastore_id      = "local-lvm"
+      tpm_version           = "v2.0"
+      network_device_bridge = "vmbr0"
+      ipv4_address          = "10.1.10.152/24"
+      ipv4_gateway          = "10.1.10.1"
+      dns_servers           = ["1.1.1.1", "8.8.8.8"]
+      # VM: Boot Disk
+      boot_disk_datastore_id = "local-lvm"
+      boot_disk_interface    = "scsi0"
+      boot_disk_size         = 60
+
+      # Note: If a new block device is needed for the home directory, ensure to create and
+      # configure an additional disk accordingly, and update this variable with the appropriate
+      # block device name for the newly created disk.
+      # And include the following in the runcmd:
+      # - Ensures that the shell script has executable permissions.
+      # "chmod +x /tmp/home_disk_setup.sh",
+      # - Executes the fdisk shell script to set up the new disk for the home directory.
+      # "/tmp/home_disk_setup.sh",
+      # # - Cleans up the temporary folder after disk setup.
+      # "rm -r /tmp/*"
+      home_disk_block_device = "/dev/sdc"
+      # VM: Attach disks, assign from scsi1 and up
+      disks = [
+        {
+          disk_datastore_id = "local-lvm"
+          disk_file_format  = "raw"
+          disk_size         = 20
+          disk_interface    = "scsi1"
+        },
+        {
+          disk_datastore_id = "local-lvm"
+          disk_file_format  = "raw"
+          disk_size         = 100
+          disk_interface    = "scsi2"
+        }
+      ]
+      tags = ["terraform", "ubuntu-22.04"]
+
+      # Cloud Image
+      cloud_image_content_type        = "iso"
+      cloud_image_datastore_id        = "local"
+      cloud_image_node_name           = "pve2"
+      cloud_image_url                 = "https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img"
+      cloud_image_file_name           = "jammy-server-cloudimg-amd64.img"
+      cloud_image_overwrite           = false
+      cloud_image_overwrite_unmanaged = false
+
+      # Cloud Init
+      cloud_init_content_type = "snippets"
+      cloud_init_datastore_id = "pve-fs"
+      cloud_init_node_name    = "pve2"
+      hostname                = "control-plane-2"
+      manage_etc_hosts        = true
+      fqdn                    = "control-plane-2.domain.com"
+      timezone                = "Europe/London"
+      admin_username          = "admin"
+      admin_password          = var.admin_password
+      users = [
+        {
+          username            = "admin"
+          uid                 = null
+          gid                 = null
+          groups              = ["adm", "cdrom", "dip", "plugdev", "lxd", "sudo"]
+          sudo                = "ALL=(ALL) NOPASSWD:ALL"
+          shell               = "/bin/bash"
+          ssh_authorized_keys = var.ssh_authorized_keys
+        },
+        {
+          username            = "ansible"
+          uid                 = 10001
+          gid                 = 10001
+          groups              = ["wheel"]
+          sudo                = "ALL=(ALL) NOPASSWD:ALL"
+          shell               = "/bin/bash"
+          ssh_authorized_keys = var.ssh_authorized_keys
+        }
+      ]
+      package_upgrade = true
+      packages        = ["qemu-guest-agent", "nfs-common"]
+      runcmd = [
+        # Enable and Start Qemu Agent
+        "systemctl enable qemu-guest-agent",
+        "systemctl start qemu-guest-agent",
+        # Ensures that the shell script has executable permissions.
+        "chmod +x /tmp/home_disk_setup.sh",
+        # Executes the fdisk shell script. 
+        "/tmp/home_disk_setup.sh",
+        # Clean up temp folder.
+        "rm -r /tmp/*"
+      ]
+    }, # end of control-plane-2
+
+    "control-plane-3" = {
+      # VM
+      name             = "control-plane-3"
+      description      = "The control plane manages the worker nodes and the Pods in the cluster."
+      node_name        = "pve3"
+      vm_id            = 153
+      cpu_cores        = 2
+      dedicated_memory = 8192
+      cpu_sockets      = 1
+      cpu_numa         = false
+      cpu_limit        = 0
+      cpu_type         = "x86-64-v2-AES"
+      bios             = "seabios"
+      machine          = "q35"
+      agent_enabled    = true
+      agent_timeout    = "15m"
+      startup = {
+        order      = 1
+        up_delay   = 10
+        down_delay = 5
+      }
+      operating_system_type = "l26"
+      scsi_hardware         = "virtio-scsi-pci"
+      vga_memory            = 128
+      vga_type              = "std"
+      tpm_enable            = false
+      tpm_datastore_id      = "local-lvm"
+      tpm_version           = "v2.0"
+      network_device_bridge = "vmbr0"
+      ipv4_address          = "10.1.10.153/24"
+      ipv4_gateway          = "10.1.10.1"
+      dns_servers           = ["1.1.1.1", "8.8.8.8"]
+      # VM: Boot Disk
+      boot_disk_datastore_id = "local-lvm"
+      boot_disk_interface    = "scsi0"
+      boot_disk_size         = 60
+
+      # Note: If a new block device is needed for the home directory, ensure to create and
+      # configure an additional disk accordingly, and update this variable with the appropriate
+      # block device name for the newly created disk.
+      # And include the following in the runcmd:
+      # - Ensures that the shell script has executable permissions.
+      # "chmod +x /tmp/home_disk_setup.sh",
+      # - Executes the fdisk shell script to set up the new disk for the home directory.
+      # "/tmp/home_disk_setup.sh",
+      # # - Cleans up the temporary folder after disk setup.
+      # "rm -r /tmp/*"
+      home_disk_block_device = "/dev/sdc"
+      # VM: Attach disks, assign from scsi1 and up
+      disks = [
+        {
+          disk_datastore_id = "local-lvm"
+          disk_file_format  = "raw"
+          disk_size         = 20
+          disk_interface    = "scsi1"
+        },
+        {
+          disk_datastore_id = "local-lvm"
+          disk_file_format  = "raw"
+          disk_size         = 100
+          disk_interface    = "scsi2"
+        }
+      ]
+      tags = ["terraform", "ubuntu-22.04"]
+
+      # Cloud Image
+      cloud_image_content_type        = "iso"
+      cloud_image_datastore_id        = "local"
+      cloud_image_node_name           = "pve3"
+      cloud_image_url                 = "https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img"
+      cloud_image_file_name           = "jammy-server-cloudimg-amd64.img"
+      cloud_image_overwrite           = false
+      cloud_image_overwrite_unmanaged = false
+
+      # Cloud Init
+      cloud_init_content_type = "snippets"
+      cloud_init_datastore_id = "pve-fs"
+      cloud_init_node_name    = "pve3"
+      hostname                = "control-plane-3"
+      manage_etc_hosts        = true
+      fqdn                    = "control-plane-3.domain.com"
+      timezone                = "Europe/London"
+      admin_username          = "admin"
+      admin_password          = var.admin_password
+      users = [
+        {
+          username            = "admin"
+          uid                 = null
+          gid                 = null
+          groups              = ["adm", "cdrom", "dip", "plugdev", "lxd", "sudo"]
+          sudo                = "ALL=(ALL) NOPASSWD:ALL"
+          shell               = "/bin/bash"
+          ssh_authorized_keys = var.ssh_authorized_keys
+        },
+        {
+          username            = "ansible"
+          uid                 = 10001
+          gid                 = 10001
+          groups              = ["wheel"]
+          sudo                = "ALL=(ALL) NOPASSWD:ALL"
+          shell               = "/bin/bash"
+          ssh_authorized_keys = var.ssh_authorized_keys
+        }
+      ]
+      package_upgrade = true
+      packages        = ["qemu-guest-agent", "nfs-common"]
+      runcmd = [
+        # Enable and Start Qemu Agent
+        "systemctl enable qemu-guest-agent",
+        "systemctl start qemu-guest-agent",
+        # Ensures that the shell script has executable permissions.
+        "chmod +x /tmp/home_disk_setup.sh",
+        # Executes the fdisk shell script. 
+        "/tmp/home_disk_setup.sh",
+        # Clean up temp folder.
+        "rm -r /tmp/*"
+      ]
+    }, # end of control-plane-3
+
+
+    "worker-node-1" = {
+      # VM
+      name             = "worker-node-1"
+      description      = "The work node responsible for running containerized applications."
+      node_name        = "pve1"
+      vm_id            = 161
+      cpu_cores        = 2
+      dedicated_memory = 8192
+      cpu_sockets      = 1
+      cpu_numa         = false
+      cpu_limit        = 0
+      cpu_type         = "x86-64-v2-AES"
+      bios             = "seabios"
+      machine          = "q35"
+      agent_enabled    = true
+      agent_timeout    = "15m"
+      startup = {
+        order      = 1
+        up_delay   = 10
+        down_delay = 5
+      }
+      operating_system_type = "l26"
+      scsi_hardware         = "virtio-scsi-pci"
+      vga_memory            = 128
+      vga_type              = "std"
+      tpm_enable            = false
+      tpm_datastore_id      = "local-lvm"
+      tpm_version           = "v2.0"
+      network_device_bridge = "vmbr0"
+      ipv4_address          = "10.1.10.161/24"
+      ipv4_gateway          = "10.1.10.1"
+      dns_servers           = ["1.1.1.1", "8.8.8.8"]
+      # VM: Boot Disk
+      boot_disk_datastore_id = "local-lvm"
+      boot_disk_interface    = "scsi0"
+      boot_disk_size         = 60
+
+      # Note: If a new block device is needed for the home directory, ensure to create and
+      # configure an additional disk accordingly, and update this variable with the appropriate
+      # block device name for the newly created disk.
+      # And include the following in the runcmd:
+      # - Ensures that the shell script has executable permissions.
+      # "chmod +x /tmp/home_disk_setup.sh",
+      # - Executes the fdisk shell script to set up the new disk for the home directory.
+      # "/tmp/home_disk_setup.sh",
+      # # - Cleans up the temporary folder after disk setup.
+      # "rm -r /tmp/*"
+      home_disk_block_device = "/dev/sdc"
+      # VM: Attach disks, assign from scsi1 and up
+      disks = [
+        {
+          disk_datastore_id = "local-lvm"
+          disk_file_format  = "raw"
+          disk_size         = 20
+          disk_interface    = "scsi1"
+        },
+        {
+          disk_datastore_id = "local-lvm"
+          disk_file_format  = "raw"
+          disk_size         = 100
+          disk_interface    = "scsi2"
+        }
+      ]
+      tags = ["terraform", "ubuntu-22.04"]
+
+      # Cloud Image
+      cloud_image_content_type        = "iso"
+      cloud_image_datastore_id        = "local"
+      cloud_image_node_name           = "pve1"
+      cloud_image_url                 = "https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img"
+      cloud_image_file_name           = "jammy-server-cloudimg-amd64.img"
+      cloud_image_overwrite           = false
+      cloud_image_overwrite_unmanaged = false
+
+      # Cloud Init
+      cloud_init_content_type = "snippets"
+      cloud_init_datastore_id = "pve-fs"
+      cloud_init_node_name    = "pve1"
+      hostname                = "worker-node-1"
+      manage_etc_hosts        = true
+      fqdn                    = "worker-node-1.domain.com"
+      timezone                = "Europe/London"
+      admin_username          = "admin"
+      admin_password          = var.admin_password
+      users = [
+        {
+          username            = "admin"
+          uid                 = null
+          gid                 = null
+          groups              = ["adm", "cdrom", "dip", "plugdev", "lxd", "sudo"]
+          sudo                = "ALL=(ALL) NOPASSWD:ALL"
+          shell               = "/bin/bash"
+          ssh_authorized_keys = var.ssh_authorized_keys
+        },
+        {
+          username            = "ansible"
+          uid                 = 10001
+          gid                 = 10001
+          groups              = ["wheel"]
+          sudo                = "ALL=(ALL) NOPASSWD:ALL"
+          shell               = "/bin/bash"
+          ssh_authorized_keys = var.ssh_authorized_keys
+        }
+      ]
+      package_upgrade = true
+      packages        = ["qemu-guest-agent", "nfs-common"]
+      runcmd = [
+        # Enable and Start Qemu Agent
+        "systemctl enable qemu-guest-agent",
+        "systemctl start qemu-guest-agent",
+        # Ensures that the shell script has executable permissions.
+        "chmod +x /tmp/home_disk_setup.sh",
+        # Executes the fdisk shell script. 
+        "/tmp/home_disk_setup.sh",
+        # Clean up temp folder.
+        "rm -r /tmp/*"
+      ]
+    }, # end of worker-node-1
+
+    "worker-node-2" = {
+      # VM
+      name             = "worker-node-2"
+      description      = "The work node responsible for running containerized applications."
+      node_name        = "pve2"
+      vm_id            = 162
+      cpu_cores        = 2
+      dedicated_memory = 8192
+      cpu_sockets      = 1
+      cpu_numa         = false
+      cpu_limit        = 0
+      cpu_type         = "x86-64-v2-AES"
+      bios             = "seabios"
+      machine          = "q35"
+      agent_enabled    = true
+      agent_timeout    = "15m"
+      startup = {
+        order      = 1
+        up_delay   = 10
+        down_delay = 5
+      }
+      operating_system_type = "l26"
+      scsi_hardware         = "virtio-scsi-pci"
+      vga_memory            = 128
+      vga_type              = "std"
+      tpm_enable            = false
+      tpm_datastore_id      = "local-lvm"
+      tpm_version           = "v2.0"
+      network_device_bridge = "vmbr0"
+      ipv4_address          = "10.1.10.162/24"
+      ipv4_gateway          = "10.1.10.1"
+      dns_servers           = ["1.1.1.1", "8.8.8.8"]
+      # VM: Boot Disk
+      boot_disk_datastore_id = "local-lvm"
+      boot_disk_interface    = "scsi0"
+      boot_disk_size         = 60
+
+      # Note: If a new block device is needed for the home directory, ensure to create and
+      # configure an additional disk accordingly, and update this variable with the appropriate
+      # block device name for the newly created disk.
+      # And include the following in the runcmd:
+      # - Ensures that the shell script has executable permissions.
+      # "chmod +x /tmp/home_disk_setup.sh",
+      # - Executes the fdisk shell script to set up the new disk for the home directory.
+      # "/tmp/home_disk_setup.sh",
+      # # - Cleans up the temporary folder after disk setup.
+      # "rm -r /tmp/*"
+      home_disk_block_device = "/dev/sdc"
+      # VM: Attach disks, assign from scsi1 and up
+      disks = [
+        {
+          disk_datastore_id = "local-lvm"
+          disk_file_format  = "raw"
+          disk_size         = 20
+          disk_interface    = "scsi1"
+        },
+        {
+          disk_datastore_id = "local-lvm"
+          disk_file_format  = "raw"
+          disk_size         = 100
+          disk_interface    = "scsi2"
+        }
+      ]
+      tags = ["terraform", "ubuntu-22.04"]
+
+      # Cloud Image
+      cloud_image_content_type        = "iso"
+      cloud_image_datastore_id        = "local"
+      cloud_image_node_name           = "pve2"
+      cloud_image_url                 = "https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img"
+      cloud_image_file_name           = "jammy-server-cloudimg-amd64.img"
+      cloud_image_overwrite           = false
+      cloud_image_overwrite_unmanaged = false
+
+      # Cloud Init
+      cloud_init_content_type = "snippets"
+      cloud_init_datastore_id = "pve-fs"
+      cloud_init_node_name    = "pve2"
+      hostname                = "worker-node-2"
+      manage_etc_hosts        = true
+      fqdn                    = "worker-node-2.domain.com"
+      timezone                = "Europe/London"
+      admin_username          = "admin"
+      admin_password          = var.admin_password
+      users = [
+        {
+          username            = "admin"
+          uid                 = null
+          gid                 = null
+          groups              = ["adm", "cdrom", "dip", "plugdev", "lxd", "sudo"]
+          sudo                = "ALL=(ALL) NOPASSWD:ALL"
+          shell               = "/bin/bash"
+          ssh_authorized_keys = var.ssh_authorized_keys
+        },
+        {
+          username            = "ansible"
+          uid                 = 10001
+          gid                 = 10001
+          groups              = ["wheel"]
+          sudo                = "ALL=(ALL) NOPASSWD:ALL"
+          shell               = "/bin/bash"
+          ssh_authorized_keys = var.ssh_authorized_keys
+        }
+      ]
+      package_upgrade = true
+      packages        = ["qemu-guest-agent", "nfs-common"]
+      runcmd = [
+        # Enable and Start Qemu Agent
+        "systemctl enable qemu-guest-agent",
+        "systemctl start qemu-guest-agent",
+        # Ensures that the shell script has executable permissions.
+        "chmod +x /tmp/home_disk_setup.sh",
+        # Executes the fdisk shell script. 
+        "/tmp/home_disk_setup.sh",
+        # Clean up temp folder.
+        "rm -r /tmp/*"
+      ]
+    }, # end of worker-node-2
+
+    "worker-node-3" = {
+      # VM
+      name             = "worker-node-3"
+      description      = "The work node responsible for running containerized applications."
+      node_name        = "pve3"
+      vm_id            = 163
+      cpu_cores        = 2
+      dedicated_memory = 8192
+      cpu_sockets      = 1
+      cpu_numa         = false
+      cpu_limit        = 0
+      cpu_type         = "x86-64-v2-AES"
+      bios             = "seabios"
+      machine          = "q35"
+      agent_enabled    = true
+      agent_timeout    = "15m"
+      startup = {
+        order      = 1
+        up_delay   = 10
+        down_delay = 5
+      }
+      operating_system_type = "l26"
+      scsi_hardware         = "virtio-scsi-pci"
+      vga_memory            = 128
+      vga_type              = "std"
+      tpm_enable            = false
+      tpm_datastore_id      = "local-lvm"
+      tpm_version           = "v2.0"
+      network_device_bridge = "vmbr0"
+      ipv4_address          = "10.1.10.163/24"
+      ipv4_gateway          = "10.1.10.1"
+      dns_servers           = ["1.1.1.1", "8.8.8.8"]
+      # VM: Boot Disk
+      boot_disk_datastore_id = "local-lvm"
+      boot_disk_interface    = "scsi0"
+      boot_disk_size         = 60
+
+      # Note: If a new block device is needed for the home directory, ensure to create and
+      # configure an additional disk accordingly, and update this variable with the appropriate
+      # block device name for the newly created disk.
+      # And include the following in the runcmd:
+      # - Ensures that the shell script has executable permissions.
+      # "chmod +x /tmp/home_disk_setup.sh",
+      # - Executes the fdisk shell script to set up the new disk for the home directory.
+      # "/tmp/home_disk_setup.sh",
+      # # - Cleans up the temporary folder after disk setup.
+      # "rm -r /tmp/*"
+      home_disk_block_device = "/dev/sdc"
+      # VM: Attach disks, assign from scsi1 and up
+      disks = [
+        {
+          disk_datastore_id = "local-lvm"
+          disk_file_format  = "raw"
+          disk_size         = 20
+          disk_interface    = "scsi1"
+        },
+        {
+          disk_datastore_id = "local-lvm"
+          disk_file_format  = "raw"
+          disk_size         = 100
+          disk_interface    = "scsi2"
+        }
+      ]
+      tags = ["terraform", "ubuntu-22.04"]
+
+      # Cloud Image
+      cloud_image_content_type        = "iso"
+      cloud_image_datastore_id        = "local"
+      cloud_image_node_name           = "pve3"
+      cloud_image_url                 = "https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img"
+      cloud_image_file_name           = "jammy-server-cloudimg-amd64.img"
+      cloud_image_overwrite           = false
+      cloud_image_overwrite_unmanaged = false
+
+      # Cloud Init
+      cloud_init_content_type = "snippets"
+      cloud_init_datastore_id = "pve-fs"
+      cloud_init_node_name    = "pve3"
+      hostname                = "worker-node-3"
+      manage_etc_hosts        = true
+      fqdn                    = "worker-node-3.domain.com"
+      timezone                = "Europe/London"
+      admin_username          = "admin"
+      admin_password          = var.admin_password
+      users = [
+        {
+          username            = "admin"
+          uid                 = null
+          gid                 = null
+          groups              = ["adm", "cdrom", "dip", "plugdev", "lxd", "sudo"]
+          sudo                = "ALL=(ALL) NOPASSWD:ALL"
+          shell               = "/bin/bash"
+          ssh_authorized_keys = var.ssh_authorized_keys
+        },
+        {
+          username            = "ansible"
+          uid                 = 10001
+          gid                 = 10001
+          groups              = ["wheel"]
+          sudo                = "ALL=(ALL) NOPASSWD:ALL"
+          shell               = "/bin/bash"
+          ssh_authorized_keys = var.ssh_authorized_keys
+        }
+      ]
+      package_upgrade = true
+      packages        = ["qemu-guest-agent", "nfs-common"]
+      runcmd = [
+        # Enable and Start Qemu Agent
+        "systemctl enable qemu-guest-agent",
+        "systemctl start qemu-guest-agent",
+        # Ensures that the shell script has executable permissions.
+        "chmod +x /tmp/home_disk_setup.sh",
+        # Executes the fdisk shell script. 
+        "/tmp/home_disk_setup.sh",
+        # Clean up temp folder.
+        "rm -r /tmp/*"
+      ]
+    }, # end of worker-node-3
   }
 }
 ```   
 ##### variables.tf
 ```hcl
-# Proxmox Provider
-# Hard-coding credentials into any Terraform configuration is not recommended, 
-# and risks secret leakage should this file ever be committed to a public version control system.
-variable "virtual_environment_endpoint" {
-  type        = string
-  description = "This is the URL endpoint for connecting to your Proxmox server. "
-}
+# VMS
+variable "vms" {
+  # VM
+  description = "Map of VM configurations"
+  type = map(object({
+    name             = string
+    description      = string
+    node_name        = string
+    vm_id            = number
+    cpu_cores        = number
+    dedicated_memory = number
+    cpu_sockets      = number
+    cpu_numa         = bool
+    cpu_limit        = number
+    cpu_type         = string
+    bios             = string
+    machine          = string
+    agent_enabled    = bool
+    agent_timeout    = string
+    startup = optional(object({
+      order      = number
+      up_delay   = number
+      down_delay = number
+    }))
+    operating_system_type  = string
+    scsi_hardware          = string
+    vga_memory             = number
+    vga_type               = string
+    tpm_enable             = bool
+    tpm_datastore_id       = string
+    tpm_version            = string
+    network_device_bridge  = string
+    ipv4_address           = string
+    ipv4_gateway           = string
+    dns_servers            = list(string)
+    boot_disk_datastore_id = string
+    boot_disk_interface    = string
+    boot_disk_size         = number
+    home_disk_block_device = string
+    disks = list(object({
+      disk_datastore_id = string
+      disk_file_format  = string
+      disk_size         = number
+      # assign from scsi1 and up
+      disk_interface = string
+    }))
+    tags = list(string)
+    # Cloud Image
+    cloud_image_node_name           = string
+    cloud_image_content_type        = string
+    cloud_image_datastore_id        = string
+    cloud_image_url                 = string
+    cloud_image_file_name           = string
+    cloud_image_overwrite           = bool
+    cloud_image_overwrite_unmanaged = bool
+    # Cloud Init
+    cloud_init_content_type = string
+    cloud_init_datastore_id = string
+    cloud_init_node_name    = string
+    hostname                = string
+    manage_etc_hosts        = bool
+    fqdn                    = string
+    timezone                = string
+    admin_username          = string
+    admin_password          = optional(string)
+    users = list(object({
+      username            = string
+      uid                 = optional(number)
+      gid                 = optional(number)
+      groups              = list(string)
+      sudo                = string
+      shell               = string
+      ssh_authorized_keys = list(string)
+    }))
+    package_upgrade         = bool
+    packages                = list(string)
+    runcmd                  = list(string)
+  }))
 
-variable "virtual_environment_username" {
-  description = "This is the username used to authenticate to the Proxmox server."
-  type        = string
-}
-
-variable "virtual_environment_password" {
-  description = "This is the password associated with the provided username for authentication."
-  type        = string
-}
-
-# Cloud-Init
-variable "ssh_authorized_keys" {
-  type        = list(string)
-  description = "The ssh_authorized_keys is a configuration option in cloud-init that allows you to specify a list of SSH public keys. When cloud-init runs during the instance initialization process, it adds these public keys to the ~/.ssh/authorized_keys file of the specified user, granting them SSH access to the instance."
+  default = {
+    example_vm = {
+      name             = "ubuntu-vm"
+      description      = "default_description"
+      node_name        = "pve1"
+      vm_id            = 1001
+      cpu_cores        = 2
+      dedicated_memory = 2048
+      cpu_sockets      = 1
+      cpu_numa         = false
+      cpu_limit        = 0
+      cpu_type         = "x86-64-v2-AES"
+      bios             = "seabios"
+      machine          = "q35"
+      agent_enabled    = true
+      agent_timeout    = "15m"
+      startup = {
+        order      = 1
+        up_delay   = 10
+        down_delay = 5
+      }
+      operating_system_type  = "l26"
+      scsi_hardware          = "virtio-scsi-pci"
+      vga_memory             = 256
+      vga_type               = "std"
+      tpm_enable             = false
+      tpm_datastore_id       = "local-lvm"
+      tpm_version            = "v2.0"
+      network_device_bridge  = "vmbr0"
+      ipv4_address           = "10.1.5.100/24"
+      ipv4_gateway           = "10.1.5.1"
+      dns_servers            = ["8.8.8.8", "1.1.1.1"]
+      boot_disk_datastore_id = "local-lvm"
+      boot_disk_interface    = "scsi0"
+      boot_disk_size         = 200
+      home_disk_block_device = "/dev/sdb"
+      disks = [
+        {
+          disk_datastore_id = "local-lvm"
+          disk_file_format  = "raw"
+          disk_size         = 40
+          disk_interface    = "scsi1"
+        }
+      ]
+      tags                            = ["terraform", "ubuntu"]
+      cloud_image_node_name           = "iso"
+      cloud_image_content_type        = "pve-cluster-fs"
+      cloud_image_datastore_id        = "pve1"
+      cloud_image_url                 = "https://cloud-images.ubuntu.com/jammy/20231215/jammy-server-cloudimg-amd64.img"
+      cloud_image_file_name           = "jammy-server-cloudimg-amd64.img"
+      cloud_image_overwrite           = true
+      cloud_image_overwrite_unmanaged = true
+      cloud_init_content_type         = "snippets"
+      cloud_init_datastore_id         = "pve-cluster-fs"
+      cloud_init_node_name            = "pve1"
+      hostname                        = "default_hostname"
+      manage_etc_hosts                = true
+      fqdn                            = "default_fqdn"
+      timezone                        = "default_timezone"
+      admin_username                  = "ubuntu"
+      # admin_password can be provided optionally per VM
+      users = [
+        {
+          username            = "ubuntu"
+          uid                 = null
+          gid                 = null
+          groups              = ["adm", "cdrom", "dip", "plugdev", "lxd", "sudo"]
+          sudo                = "ALL=(ALL) NOPASSWD:ALL"
+          shell               = "/bin/bash"
+          ssh_authorized_keys = []
+        },
+        {
+          username            = "ansible"
+          uid                 = 10001
+          gid                 = 10001
+          groups              = ["wheel"]
+          sudo                = "ALL=(ALL) NOPASSWD:ALL"
+          shell               = "/bin/bash"
+          ssh_authorized_keys = []
+        }
+      ]
+      package_upgrade                 = true
+      packages                        = ["qemu-guest-agent"]
+      runcmd = [
+        # Enable and Start Qemu Agent
+        "systemctl enable qemu-guest-agent",
+        "systemctl start qemu-guest-agent",
+        # Ensures that the shell script has executable permissions.
+        "chmod +x /tmp/home_disk_setup.sh",
+        # Executes the fdiskshell script. 
+        "/tmp/home_disk_setup.sh",
+        # Clean up temp folder.
+        "rm -r /tmp/*"
+      ]
+    }
+  }
 }
 output "vm_info" {
   value = {
@@ -240,6 +1013,6 @@ MIT
 ## 🇬🇧 Modifier
 
 * Modified by: Jody WAN
-* Linkedin: https://www.linkedin.com/in/doman/
-* Website: https://www.doman.com
+* Linkedin: https://www.linkedin.com/in/jodywan/
+* Website: https://www.jodywan.com
 <!-- END_TF_DOCS -->
